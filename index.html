@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cocos2d-html5 Hello World test</title>
+    <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
+    <meta name="viewport" content="width=321,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <style>
+        body, canvas, div {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -khtml-user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        body {
+            padding:0;
+            margin: 0;
+            background: #000;
+        }
+
+        #qrcode {
+            display: none
+        }
+
+    </style>
+    <script src="../CCBoot.js"></script>
+    <script src="main.js"></script>
+    <script src='src/jquery-1.8.0.min.js' type='text/javascript'></script>
+    <script src='src/jquery.qrcode.min.js' type='text/javascript'></script>
+    <script type="text/javascript">
+
+        //获取二维码数据
+        function makeQrCode() {
+            $('#qrcode').qrcode({width: 320,height: 320,text: "http://www.zhai100.net"});
+            var $code = $('#qrcode > canvas');
+            var codeData = $code[0].toDataURL();
+            return codeData;
+        }
+
+    </script>
+</head>
+<body>
+<script src="res/loading.js"></script>
+<canvas id="gameCanvas" width="321" height="480"></canvas>
+<div id="qrcode"></div>
+</body>
+</html>
